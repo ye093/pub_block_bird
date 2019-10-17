@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../test/text_widget.dart';
+import '../test/animated_widget.dart';
 
 /// 主页面
 class MainContent extends StatefulWidget {
@@ -26,7 +26,7 @@ class _MainContentState extends State<MainContent> {
         centerTitle: true, // 标题居中
         title: Text(widget.title), //标题
       ),
-      body: AnimatedTextInkWell(),
+      body: MyAnimatedList(),
     );
   }
 }

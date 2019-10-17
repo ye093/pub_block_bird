@@ -113,3 +113,41 @@ class _AnimatedTextInkWellState extends State<AnimatedTextInkWell> {
   }
 
 }
+
+
+/// 文本样式变换动画
+class StyleAnimatedText extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _StyleAnimatedTextState();
+  }
+
+}
+
+class _StyleAnimatedTextState extends State<StyleAnimatedText> {
+
+  final TextStyle normalTextStyle = TextStyle(fontWeight: FontWeight.normal, color: Colors.black, fontSize: 18.0);
+  final TextStyle boldTextStyle = TextStyle(fontWeight: FontWeight.bold, color: Colors.red, fontSize: 56.0);
+
+  bool isSelected = false;
+
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          isSelected = !isSelected;
+        });
+      },
+      child: Center(
+        child: AnimatedDefaultTextStyle(
+          style: isSelected ?  boldTextStyle : normalTextStyle,
+          child: Text('FLUTTER',),
+          duration: const Duration(milliseconds: 200),
+        ),
+      ),
+    );
+  }
+
+}
